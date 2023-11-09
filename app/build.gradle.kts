@@ -70,9 +70,8 @@ dependencies {
     // ViewModel utilities for Compose
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
 
-    //Glide
-    implementation ("com.github.bumptech.glide:glide:4.13.2")
-
+    //Coil
+    implementation("io.coil-kt:coil-compose:1.3.2")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

@@ -9,18 +9,25 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import coil.compose.rememberImagePainter
 import com.example.dema.models.local.Dema
 
 @Composable
-fun RecipeItem(dema: Dema) {
+fun RecipeItem(
+    dema: Dema,
+    onMealClick: (Dema) -> Unit
+) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
             .padding(10.dp)
+            .clickable {
+                onMealClick(dema)
+            }
     ) {
         // Image
         Image(
-            painter = painterResource(id = dema.imageRes),
+            painter = rememberImagePainter(data = dema.imageRes),
             contentDescription = null, // TODO: Provide a meaningful description
             modifier = Modifier
                 .height(200.dp)
