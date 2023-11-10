@@ -10,24 +10,25 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberImagePainter
+import com.example.dema.models.Meal
 import com.example.dema.models.local.Dema
 
 @Composable
 fun RecipeItem(
-    dema: Dema,
-    onMealClick: (Dema) -> Unit
+    meal: Meal,
+    //onMealClick: (Meal) -> Unit
 ) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
             .padding(10.dp)
-            .clickable {
-                onMealClick(dema)
-            }
+            /*.clickable {
+                onMealClick(meal)
+            }*/
     ) {
         // Image
         Image(
-            painter = rememberImagePainter(data = dema.imageRes),
+            painter = rememberImagePainter(data = meal.strMealThumb),
             contentDescription = null, // TODO: Provide a meaningful description
             modifier = Modifier
                 .height(200.dp)
@@ -41,7 +42,7 @@ fun RecipeItem(
 
         // Recipe Name
         Text(
-            text = dema.name,
+            text = meal.strMeal,
             modifier = Modifier
                 .padding(5.dp),
             style = MaterialTheme.typography.labelMedium
